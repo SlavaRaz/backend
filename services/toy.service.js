@@ -11,6 +11,8 @@ export const toyService = {
     save,
 }
 
+console.log(toys)
+
 function query(filterBy = {}) {
 
     let filteredToys = toys
