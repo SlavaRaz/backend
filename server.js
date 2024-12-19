@@ -5,6 +5,8 @@ import cookieParser from 'cookie-parser'
 
 import { loggerService } from './services/logger.service.js'
 import { toyService } from './services/toy.service.js'
+import { userService } from './services/user.service.js'
+
 
 const app = express()
 
@@ -31,27 +33,32 @@ app.use(cors(corsOptions))
 // **************** Toys API ****************:
 // GET toys
 app.get('/api/toy', (req, res) => {
-
-  const { txt, inStock = null, pageIdx, sortBy, labels = [] , abc} = req.query
-
-  const filterBy = { txt, inStock, pageIdx: +pageIdx, sortBy, labels }
-
-  console.log('filterBy:', filterBy)
+  const filterBy = {
+    txt: req.query.txt || '',
+    createdAt: +req.query.createdAt || 0,
+    price: +req.query.price || 0,
+    isInStock: req.query.isInStock || '',
+    labels: req.query.labels || [],
+    sortBy: req.query.sortBy || 0,
+    pageIdx: req.query.pageIdx || undefined,
+  }
   toyService.query(filterBy)
     .then(toys => {
-      res.send(toys)
+      return toys
     })
+    .then(toys => res.send(toys))
     .catch(err => {
-      loggerService.error('Cannot load toys', err)
-      res.status(500).send('Cannot load toys')
+      loggerService.error('Cannot get toys', err)
+      res.status(400).send('Cannot get toys')
     })
 })
 
 app.get('/api/toy/:toyId', (req, res) => {
 
   const { toyId } = req.params
+  console.log(toyId)
 
-  toyService.get(toyId)
+  toyService.getById(toyId)
     .then(toy => {
       res.send(toy)
     })
@@ -63,6 +70,8 @@ app.get('/api/toy/:toyId', (req, res) => {
 
 app.post('/api/toy', (req, res) => {
 
+  const loggedinUser = userService.validateToken(req.cookies.loginToken)
+  if (!loggedinUser) return res.status(401).send('Cannot add car')
   const { name, price, labels } = req.body
   const toy = {
     name,
@@ -70,7 +79,7 @@ app.post('/api/toy', (req, res) => {
     labels,
   }
 
-  toyService.save(toy)
+  toyService.save(toy, loggedinUser)
     .then(savedToy => {
       res.send(savedToy)
     })
@@ -82,6 +91,8 @@ app.post('/api/toy', (req, res) => {
 
 app.put('/api/toy', (req, res) => {
 
+  const loggedinUser = userService.validateToken(req.cookies.loginToken)
+    if (!loggedinUser) return res.status(401).send('Cannot update car')
   const { name, price, _id, labels } = req.body
   const toy = {
     _id,
@@ -90,7 +101,7 @@ app.put('/api/toy', (req, res) => {
     labels,
   }
 
-  toyService.save(toy)
+  toyService.save(toy,loggedinUser)
     .then(savedToy => {
       res.send(savedToy)
     })
@@ -102,8 +113,10 @@ app.put('/api/toy', (req, res) => {
 
 app.delete('/api/toy/:toyId', (req, res) => {
 
-  const { toyId } = req.params
+  const loggedinUser = userService.validateToken(req.cookies.loginToken)
+  if (!loggedinUser) return res.status(401).send('Cannot remove car')
 
+  const { toyId } = req.params
   toyService.remove(toyId)
     .then(msg => {
       res.send({ msg, toyId })
@@ -112,6 +125,77 @@ app.delete('/api/toy/:toyId', (req, res) => {
       loggerService.error('Cannot delete toy', err)
       res.status(500).send('Cannot delete toy, ' + err)
     })
+})
+
+// User API
+app.get('/api/user', (req, res) => {
+  userService.query()
+      .then(users => res.send(users))
+      .catch(err => {
+          loggerService.error('Cannot load users', err)
+          res.status(400).send('Cannot load users')
+      })
+})
+
+app.get('/api/user/:userId', (req, res) => {
+  const { userId } = req.params
+
+  userService.getById(userId)
+      .then(user => res.send(user))
+      .catch(err => {
+          loggerService.error('Cannot load user', err)
+          res.status(400).send('Cannot load user')
+      })
+})
+
+// Auth API
+app.post('/api/auth/login', (req, res) => {
+  const credentials = req.body
+
+  userService.checkLogin(credentials)
+      .then(user => {
+          if (user) {
+              const loginToken = userService.getLoginToken(user)
+              res.cookie('loginToken', loginToken)
+              res.send(user)
+          } else {
+              res.status(401).send('Invalid Credentials')
+          }
+      })
+})
+
+app.post('/api/auth/signup', (req, res) => {
+  const credentials = req.body
+
+  userService.save(credentials)
+      .then(user => {
+          if (user) {
+              const loginToken = userService.getLoginToken(user)
+              res.cookie('loginToken', loginToken)
+              res.send(user)
+          } else {
+              res.status(400).send('Cannot signup')
+          }
+      })
+})
+
+app.post('/api/auth/logout', (req, res) => {
+  res.clearCookie('loginToken')
+  res.send('logged-out!')
+})
+
+
+app.put('/api/user', (req, res) => {
+  const loggedinUser = userService.validateToken(req.cookies.loginToken)
+  if (!loggedinUser) return res.status(400).send('No logged in user')
+  const { diff } = req.body
+  if (loggedinUser.score + diff < 0) return res.status(400).send('No credit')
+  loggedinUser.score += diff
+  return userService.save(loggedinUser).then(user => {
+      const token = userService.getLoginToken(user)
+      res.cookie('loginToken', token)
+      res.send(user)
+  })
 })
 
 // Fallback

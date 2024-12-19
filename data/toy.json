@@ -8,7 +8,12 @@
             "Outdoor"
         ],
         "createdAt": 1631032801011,
-        "inStock": true
+        "inStock": true,
+        "owner": {
+            "_id": "Uo93j",
+            "fullname": "admin",
+            "isAdmin": true
+        }
     },
     {
         "_id": "t113",
@@ -18,7 +23,12 @@
             "Baby"
         ],
         "createdAt": 1631043801011,
-        "inStock": true
+        "inStock": true,
+        "owner": {
+            "_id": "Uo93j",
+            "fullname": "admin",
+            "isAdmin": true
+        }
     },
     {
         "_id": "t101",
@@ -29,7 +39,11 @@
             "Baby"
         ],
         "createdAt": 1631031801011,
-        "inStock": false
+        "inStock": false,
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Ja"
+        }
     },
     {
         "_id": "t108",
@@ -39,7 +53,11 @@
             "Baby"
         ],
         "createdAt": 1631038801011,
-        "inStock": true
+        "inStock": true,
+        "owner": {
+            "_id": "u102",
+            "fullname": "Muki Ba"
+        }
     },
     {
         "_id": "t110",
@@ -50,7 +68,12 @@
             "Outdoor"
         ],
         "createdAt": 1631040801011,
-        "inStock": false
+        "inStock": false,
+        "owner": {
+            "_id": "Uo93j",
+            "fullname": "admin",
+            "isAdmin": true
+        }
     },
     {
         "_id": "t103",
@@ -62,7 +85,12 @@
             "Outdoor"
         ],
         "createdAt": 1631033801011,
-        "inStock": true
+        "inStock": true,
+        "owner": {
+            "_id": "Uo93j",
+            "fullname": "admin",
+            "isAdmin": true
+        }
     },
     {
         "_id": "t114",
@@ -72,7 +100,11 @@
             "On wheels"
         ],
         "createdAt": 1631044801011,
-        "inStock": false
+        "inStock": false,
+        "owner": {
+            "_id": "u101",
+            "fullname": "Puki Ja"
+        }
     },
     {
         "_id": "t117",
@@ -106,7 +138,11 @@
         ],
         "_id": "2aOQL",
         "createdAt": 1730228205688,
-        "inStock": true
+        "inStock": true,
+        "owner": {
+            "_id": "6iykr",
+            "fullname": "Kiki Ki"
+        }
     },
     {
         "_id": "t107",
@@ -117,7 +153,12 @@
             "Box game"
         ],
         "createdAt": 1631037801011,
-        "inStock": false
+        "inStock": false,
+        "owner": {
+            "_id": "Uo93j",
+            "fullname": "admin",
+            "isAdmin": true
+        }
     },
     {
         "_id": "t115",
@@ -127,7 +168,12 @@
             "Art"
         ],
         "createdAt": 1631045801011,
-        "inStock": true
+        "inStock": true,
+        "owner": {
+            "_id": "Uo93j",
+            "fullname": "admin",
+            "isAdmin": true
+        }
     },
     {
         "_id": "t116",
@@ -137,7 +183,12 @@
             "Battery Powered"
         ],
         "createdAt": 1631046801011,
-        "inStock": false
+        "inStock": false,
+        "owner": {
+            "_id": "Uo93j",
+            "fullname": "admin",
+            "isAdmin": true
+        }
     },
     {
         "_id": "t111",
@@ -147,7 +198,12 @@
             "Baby"
         ],
         "createdAt": 1631041801011,
-        "inStock": false
+        "inStock": false,
+        "owner": {
+            "_id": "Uo93j",
+            "fullname": "admin",
+            "isAdmin": true
+        }
     },
     {
         "_id": "t106",
@@ -157,7 +213,12 @@
             "Battery Powered"
         ],
         "createdAt": 1631036801011,
-        "inStock": true
+        "inStock": true,
+        "owner": {
+            "_id": "Uo93j",
+            "fullname": "admin",
+            "isAdmin": true
+        }
     },
     {
         "name": "asas!!",
@@ -168,7 +229,12 @@
         ],
         "_id": "1BxLH",
         "createdAt": 1721054345215,
-        "inStock": true
+        "inStock": true,
+        "owner": {
+            "_id": "Uo93j",
+            "fullname": "admin",
+            "isAdmin": true
+        }
     },
     {
         "_id": "t109",
@@ -178,6 +244,11 @@
             "Puzzle"
         ],
         "createdAt": 1631039801011,
-        "inStock": true
+        "inStock": true,
+        "owner": {
+            "_id": "Uo93j",
+            "fullname": "admin",
+            "isAdmin": true
+        }
     }
 ]
