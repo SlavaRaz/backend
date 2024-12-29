@@ -1,6 +1,6 @@
 [
     {
-        "_id": "t102",
+        
         "name": "Wooden Puzzle Set",
         "price": 45,
         "labels": [
@@ -16,7 +16,7 @@
         }
     },
     {
-        "_id": "t113",
+        
         "name": "Wooden Play Kitchen",
         "price": 75,
         "labels": [
@@ -31,7 +31,7 @@
         }
     },
     {
-        "_id": "t101",
+       
         "name": "Talking Doll",
         "price": 100,
         "labels": [
@@ -46,7 +46,7 @@
         }
     },
     {
-        "_id": "t108",
+       
         "name": "Soft Plush Teddy Bear",
         "price": 20,
         "labels": [
@@ -60,7 +60,7 @@
         }
     },
     {
-        "_id": "t110",
+       
         "name": "Remote Control Helicopter",
         "price": 95,
         "labels": [
@@ -76,7 +76,7 @@
         }
     },
     {
-        "_id": "t103",
+        
         "name": "Remote Control Car",
         "price": 79,
         "labels": [
@@ -93,7 +93,7 @@
         }
     },
     {
-        "_id": "t114",
+       
         "name": "Racing Car Set",
         "price": 70,
         "labels": [
@@ -107,7 +107,7 @@
         }
     },
     {
-        "_id": "t117",
+       
         "name": "Outdoor Playhouse",
         "price": 120,
         "labels": [
@@ -136,7 +136,7 @@
             "Outdoor",
             "Art"
         ],
-        "_id": "2aOQL",
+    
         "createdAt": 1730228205688,
         "inStock": true,
         "owner": {
@@ -145,7 +145,7 @@
         }
     },
     {
-        "_id": "t107",
+
         "name": "Miniature Train Set",
         "price": 40,
         "labels": [
@@ -161,7 +161,7 @@
         }
     },
     {
-        "_id": "t115",
+
         "name": "Glow-in-the-Dark Stars",
         "price": 15,
         "labels": [
@@ -176,7 +176,6 @@
         }
     },
     {
-        "_id": "t116",
         "name": "Electronic Drum Kit",
         "price": 85,
         "labels": [
@@ -191,7 +190,7 @@
         }
     },
     {
-        "_id": "t111",
+    
         "name": "Educational Alphabet Blocks",
         "price": 25,
         "labels": [
@@ -206,7 +205,7 @@
         }
     },
     {
-        "_id": "t106",
+
         "name": "Dancing Robot",
         "price": 65,
         "labels": [
@@ -227,7 +226,6 @@
             "Art",
             "On wheels"
         ],
-        "_id": "1BxLH",
         "createdAt": 1721054345215,
         "inStock": true,
         "owner": {
@@ -237,7 +235,7 @@
         }
     },
     {
-        "_id": "t109",
+
         "name": "3D Jigsaw Puzzle",
         "price": 35,
         "labels": [

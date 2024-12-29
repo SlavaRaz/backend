@@ -12,11 +12,13 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "cryptr": "^6.3.0",
     "express": "^4.21.1",
     "follow-redirects": "^1.15.9",
-    "fr": "^1.2.2"
+    "fr": "^1.2.2",
+    "mongodb": "^6.12.0"
   }
 }
